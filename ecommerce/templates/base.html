@@ -7,17 +7,60 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Additional custom styles for colorful design */
+        .navbar {
+            background-color: #ffd966; /* Primary blue */
+        }
+        .navbar-nav .nav-link {
+            color: #f44336;
+            font-weight: bold;
+            font-size:  1.3rem;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #4f16e4; /* Darker blue for hover effect */
+            border-radius: 5px;
+        }
+        .navbar-brand {
+            color:#f10e0e;
+            font-size: 1.5rem;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            text-align: center;
+        }
+        .footer .text-muted {
+            color: #6c757d;
+        }
+    </style>
     {% block extra_head %}{% endblock %}
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="{% url 'home' %}">SnapTrad_App</a>
+        <!-- Colorful Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand custom-brand" href="{% url 'home' %}">SnapTradX</a>
+
+<style>
+    .custom-brand {
+        font-family: 'Lobster', cursive; /* Adds a stylish, cursive font */
+        font-size: 2rem; /* Makes the font larger */
+        color: #b818d6; /* Sets a custom color, change this to your preferred one */
+        font-weight: bold;
+
+    }
+
+    .custom-brand:hover {
+        color: #ff3b3f; /* Changes color on hover */
+    }
+</style>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         {% comment %} <a class="nav-link" href="{% url 'home' %}">Home</a> {% endcomment %}
                     </li>
@@ -35,13 +78,13 @@
         </nav>
     </header>
 
-    <main role="main" class="container">
+    <main role="main" class="container mt-4">
         {% block content %}
         <!-- Page content goes here -->
         {% endblock %}
     </main>
 
-    <footer class="footer bg-light">
+    <footer class="footer">
         <div class="container">
             {% comment %} <span class="text-muted">&copy; 2024 SnapTrad. All rights reserved.</span> {% endcomment %}
         </div>
@@ -50,3 +93,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
